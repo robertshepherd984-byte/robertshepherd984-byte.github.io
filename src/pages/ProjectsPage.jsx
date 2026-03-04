@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const Projects = () => {
+const ProjectsPage = () => {
   // Easy to update - just add new projects here!
   const projects = [
     {
@@ -9,7 +9,15 @@ const Projects = () => {
       tech: ["React", "Tailwind CSS", "Vite", "GitHub Pages"],
       github: "https://github.com/robertshepherd984-byte/robertshepherd984.github.io",
       live: "https://robertshepherd984-byte.github.io",
-      image: null
+      image: "/images/projects/portfolio.jpg"
+    },
+    {
+      title: "To Do App",
+      description: "A full-featured to do app built with React. Features IndexedDB storage, filtering, and a clean dark mode interface.",
+      tech: ["React", "IndexedDB", "Dexie.js", "Tailwind CSS"],
+      github: "https://github.com/robertshepherd984-byte/todo-app",
+      live: "/#/todo",
+      image: "/images/projects/todo-app.jpg"  
     },
     {
       title: "Weather App",
@@ -18,25 +26,18 @@ const Projects = () => {
       github: "https://github.com/robertshepherd984-byte/weather-app",
       live: "https://robertshepherd984-byte.github.io/weather-app",
       image: null
-    },
-    {
-      title: "Todo App",
-      description: "A full-featured todo app built with React. Features local storage, filtering, and a clean dark mode interface.",
-      tech: ["React", "Hooks", "Local Storage", "Tailwind CSS"],
-      github: "https://github.com/robertshepherd984-byte/todo-app",
-      live: "/#/todo",  // This will work both locally and on GitHub Pages
-      image: null
     }
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gray-900">
+    <div className="min-h-screen bg-gray-900 py-16">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1 className="text-5xl font-bold text-white mb-4">
             My <span className="text-blue-400">Projects</span>
-          </h2>
+          </h1>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Here are some of the things I've built. Click through to see the code and live demos!
           </p>
@@ -49,10 +50,18 @@ const Projects = () => {
               key={index} 
               className="bg-gray-800 rounded-xl overflow-hidden hover:transform hover:scale-105 transition-all duration-300 border border-gray-700 hover:border-blue-500"
             >
-              {/* Project Image Placeholder */}
-              <div className="h-48 bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
-                <span className="text-6xl opacity-30">📁</span>
-              </div>
+              {/* Project Image - Now shows actual image if available */}
+              {project.image ? (
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-48 object-cover object-top"
+                />
+              ) : (
+                <div className="h-48 bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
+                  <span className="text-6xl opacity-30">📁</span>
+                </div>
+              )}
               
               {/* Project Info */}
               <div className="p-6">
@@ -73,7 +82,7 @@ const Projects = () => {
                   ))}
                 </div>
                 
-                {/* Links - Code always shows, Live Demo only for non-portfolio */}
+                {/* Links */}
                 <div className="flex justify-between items-center pt-4 border-t border-gray-700">
                   <a 
                     href={project.github} 
@@ -107,7 +116,7 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* View All Link */}
+        {/* View All GitHub Link */}
         <div className="text-center mt-12">
           <a 
             href="https://github.com/robertshepherd984-byte" 
@@ -121,9 +130,22 @@ const Projects = () => {
             </svg>
           </a>
         </div>
+
+        {/* Back to Home Link */}
+        <div className="text-center mt-8">
+          <Link 
+            to="/" 
+            className="text-gray-400 hover:text-blue-400 transition-colors inline-flex items-center gap-2"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Back to Home
+          </Link>
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default Projects;
+export default ProjectsPage;

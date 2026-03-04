@@ -117,7 +117,7 @@ const TodoApp = () => {
     return (
       <div className="min-h-screen bg-gray-900 py-16">
         <div className="container mx-auto px-4 max-w-2xl text-center">
-          <div className="text-white text-xl">Loading your todos...</div>
+          <div className="text-white text-xl">Loading your to dos...</div>
         </div>
       </div>
     );
@@ -130,7 +130,7 @@ const TodoApp = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-5xl font-bold text-white mb-4">
-            Todo <span className="text-blue-400">App</span>
+            To do <span className="text-blue-400">App</span>
           </h1>
           <p className="text-gray-400">
             Your tasks are saved in the browser database

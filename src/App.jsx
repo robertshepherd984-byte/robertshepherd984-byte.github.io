@@ -3,7 +3,8 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
 import ContactForm from './components/ContactForm';
-import TodoApp from './components/TodoApp';  // Add this import
+import TodoApp from './components/TodoApp';
+import ProjectsPage from './pages/ProjectsPage';
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<ContactForm />} />
-          <Route path="/todo" element={<TodoApp />} />  {/* Add this route */}
+          <Route path="/todo" element={<TodoApp />} />
+          <Route path="/projects" element={<ProjectsPage />} />
         </Routes>
       </div>
     </Router>

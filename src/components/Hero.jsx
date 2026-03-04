@@ -12,18 +12,13 @@ const Hero = () => {
                     I turn challenges into learning opportunities.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    {/* Updated this button to scroll to projects */}
-                    <button 
-                        onClick={() => {
-                        const projectsSection = document.getElementById('projects');
-                            if (projectsSection) {
-                         projectsSection.scrollIntoView({ behavior: 'smooth' });
-                        }
-                    }}
+                    {/* This button should link to /projects */}
+                    <Link 
+                        to="/projects" 
                         className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-lg font-medium"
                     >
                         View My Work
-                    </button>
+                    </Link>
                     <Link 
                         to="/contact" 
                         className="px-8 py-3 border-2 border-gray-600 text-gray-300 rounded-lg hover:bg-gray-800 transition-colors text-lg font-medium"
